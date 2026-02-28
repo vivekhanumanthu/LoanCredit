@@ -1,0 +1,78 @@
+{
+  "run_id": "7497b39a-ff57-4ead-9fac-4e8e0f5bf761",
+  "dataset": "UCI Credit Approval (loan/credit risk proxy)",
+  "spark_models": [
+    {
+      "model": "logistic_regression",
+      "validation_auc": 0.9593098958333333,
+      "test_auc": 0.9609284332688587,
+      "validation_accuracy": 0.9017857142857143,
+      "test_accuracy": 0.8823529411764706,
+      "training_seconds": 22.535817861557007,
+      "model_path": "data/models/spark_logistic_regression"
+    },
+    {
+      "model": "random_forest",
+      "validation_auc": 0.9661458333333333,
+      "test_auc": 0.9659574468085106,
+      "validation_accuracy": 0.9017857142857143,
+      "test_accuracy": 0.9117647058823529,
+      "training_seconds": 17.5069842338562,
+      "model_path": "data/models/spark_random_forest"
+    },
+    {
+      "model": "gbt_classifier",
+      "validation_auc": 0.9581705729166666,
+      "test_auc": 0.9595744680851064,
+      "validation_accuracy": 0.8839285714285714,
+      "test_accuracy": 0.9313725490196079,
+      "training_seconds": 41.80940580368042,
+      "model_path": "data/models/spark_gbt_classifier"
+    }
+  ],
+  "sklearn_models": [
+    {
+      "model": "sk_logistic",
+      "test_auc": 0.9458413926499033,
+      "test_accuracy": 0.8921568627450981,
+      "training_seconds": 0.02572917938232422
+    },
+    {
+      "model": "sk_random_forest",
+      "test_auc": 0.9595744680851065,
+      "test_accuracy": 0.9313725490196079,
+      "training_seconds": 0.10702109336853027
+    },
+    {
+      "model": "sk_gradient_boosting",
+      "test_auc": 0.9462282398452612,
+      "test_accuracy": 0.8921568627450981,
+      "training_seconds": 0.1216742992401123
+    }
+  ],
+  "bootstrap_auc_ci_95": {
+    "low": 0.9189684829059831,
+    "median": 0.9691832858499525,
+    "high": 0.9979850034012739
+  },
+  "business_metrics": {
+    "tp": 45,
+    "fp": 7,
+    "tn": 48,
+    "fn": 2,
+    "precision": 0.8653846153846154,
+    "recall": 0.9574468085106383,
+    "f1": 0.9090909090909091,
+    "expected_profit": 98000.0
+  },
+  "scaling_summary": {
+    "strong_scaling_rows": 4,
+    "weak_scaling_rows": 4,
+    "best_cost_per_10k_rows_usd": 1.81897506877676e-06
+  },
+  "notes": [
+    "Pipeline migrated from tiny time-series demo to UCI loan/credit classification data.",
+    "Input is loaded with pandas and converted to Spark DataFrame for distributed processing.",
+    "Spark UI event logs are written to data/outputs/spark_ui for execution evidence."
+  ]
+}
